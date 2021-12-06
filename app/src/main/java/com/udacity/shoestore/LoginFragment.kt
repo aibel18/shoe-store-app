@@ -12,7 +12,7 @@ import com.udacity.shoestore.databinding.LoginFragmentBinding
 class LoginFragment : Fragment() {
 
     private lateinit var binding: LoginFragmentBinding
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: AccountViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,11 +25,23 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
 
-        binding.loginViewModel = viewModel
+        binding.accountViewModel = viewModel
 
         binding.lifecycleOwner = viewLifecycleOwner
+
+        binding.loginButton.setOnClickListener {
+            binding.apply {
+                viewModel.login(userNameEdit.text.toString(), passwordEdit.text.toString())
+            }
+        }
+
+        binding.loginAccountButton.setOnClickListener{
+            binding.apply {
+                viewModel.login()
+            }
+        }
 
         return binding.root
     }

@@ -5,15 +5,14 @@
 
     <data>
         <variable
-            name="loginViewModel"
-            type="com.udacity.shoestore.LoginViewModel" />
+            name="accountViewModel"
+            type="com.udacity.shoestore.AccountViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".LoginFragment">
-
 
         <TextView
             android:id="@+id/user_name_label"
@@ -46,7 +45,7 @@
             style="@style/NameStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:text="@string/password"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,17 +67,30 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/done_button"
+            android:id="@+id/login_button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto"
             android:text="@string/login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_edit" />
+
+        <Button
+            android:id="@+id/login_account_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/account_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
