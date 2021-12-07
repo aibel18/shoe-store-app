@@ -8,6 +8,22 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/login_fragment" />
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_login_to_welcome"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.udacity.shoestore.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/welcome_fragment">
+        <argument
+            android:name="user_name"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
 </navigation>

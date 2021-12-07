@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AccountViewModel(newUsername: String? = null, newPassword: String? = null) : ViewModel() {
+class AccountViewModel(newUsername: String? = "", newPassword: String? = "") : ViewModel() {
 
     private val _username = MutableLiveData<String>()
     val username: LiveData<String>
@@ -17,6 +17,7 @@ class AccountViewModel(newUsername: String? = null, newPassword: String? = null)
 
     init {
         setAccount(newUsername, newPassword)
+        Log.i("AccountViewModel", "user name ${username.value}")
     }
 
     private fun setAccount(username: String?, password: String?) {
