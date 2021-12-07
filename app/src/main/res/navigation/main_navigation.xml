@@ -25,5 +25,13 @@
         <argument
             android:name="password"
             app:argType="string" />
+        <action
+            android:id="@+id/action_welcome_to_instruction"
+            app:destination="@id/instructionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.InstructionFragment"
+        android:label="instruction_fragment"
+        tools:layout="@layout/instruction_fragment"/>
 </navigation>
