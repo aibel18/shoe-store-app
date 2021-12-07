@@ -9,5 +9,5 @@
     <string name="resume">This is a shoe store, you are surprised at what to find</string>
     <string name="start">Start</string>
     <string name="instructions">- Instruction one \n\n-Instruction two\n\n-Instruction three</string>
-    <string name="view_list">View Shoe List</string>
+    <string name="view_list">View Shoes</string>
 </resources>
