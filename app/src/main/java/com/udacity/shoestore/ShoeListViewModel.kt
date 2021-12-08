@@ -23,8 +23,8 @@ class ShoeListViewModel() : ViewModel() {
         val shoe2 = Shoe("shoe2", 45.0, "adidas", "shoe2")
         val shoe3 = Shoe("shoe3", 85.0, "puma", "shoe3")
 
-        _shoeList.value.add(shoe1)
-        _shoeList.value.add(shoe2)
-        _shoeList.value.add(shoe3)
+        _shoeList.value?.add(shoe1)
+        _shoeList.value?.add(shoe2)
+        _shoeList.value?.add(shoe3)
     }
 }

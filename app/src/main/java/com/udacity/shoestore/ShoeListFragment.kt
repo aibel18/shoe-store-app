@@ -6,29 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.InstructionFragmentBinding
+import com.udacity.shoestore.databinding.ShoeListFragmentBinding
 
-class InstructionFragment : Fragment() {
+class ShoeListFragment : Fragment() {
 
-    private lateinit var binding: InstructionFragmentBinding
+    private lateinit var binding: ShoeListFragmentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.instruction_fragment,
+            R.layout.shoe_list_fragment,
             container,
             false
         )
-
-        binding.viewButton.setOnClickListener{
-            val action = InstructionFragmentDirections.actionInstructionToShoeList()
-            findNavController().navigate(action)
-        }
 
         return binding.root
     }
