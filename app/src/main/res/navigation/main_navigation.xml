@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/login_fragment">
 
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/login_fragment"
         android:name="com.udacity.shoestore.LoginFragment"
-        android:label="login_fragment"
+        android:label="Login"
         tools:layout="@layout/login_fragment" >
         <action
             android:id="@+id/action_login_to_welcome"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcome_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment"
+        android:id="@+id/welcome_fragment"
         android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="Welcome"
         tools:layout="@layout/welcome_fragment">
         <argument
             android:name="user_name"
@@ -27,20 +27,20 @@
             app:argType="string" />
         <action
             android:id="@+id/action_welcome_to_instruction"
-            app:destination="@id/instructionFragment" />
+            app:destination="@id/instruction_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/instructionFragment"
+        android:id="@+id/instruction_fragment"
         android:name="com.udacity.shoestore.InstructionFragment"
-        android:label="instruction_fragment"
+        android:label="Instruction"
         tools:layout="@layout/instruction_fragment">
         <action
             android:id="@+id/action_instruction_to_shoe_list"
-            app:destination="@id/shoeListFragment" />
+            app:destination="@id/shoe_list_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/shoeListFragment"
+        android:id="@+id/shoe_list_fragment"
         android:name="com.udacity.shoestore.ShoeListFragment"
-        android:label="shoe_list_fragment"
+        android:label="Shoe List"
         tools:layout="@layout/shoe_list_fragment" />
 </navigation>

@@ -11,4 +11,5 @@
     <string name="instructions">- Instruction one \n\n-Instruction two\n\n-Instruction three</string>
     <string name="view_list">View Shoes</string>
     <string name="shoe_title">Shoes</string>
+    <string name="logout">Logout</string>
 </resources>
