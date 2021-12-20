@@ -12,4 +12,10 @@
     <string name="view_list">View Shoes</string>
     <string name="shoe_title">Shoes</string>
     <string name="logout">Logout</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="shoe_company">Company</string>
+    <string name="shoe_size">Shoe size</string>
+    <string name="shoe_description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>
