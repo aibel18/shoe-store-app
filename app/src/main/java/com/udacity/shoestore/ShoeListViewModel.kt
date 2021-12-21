@@ -19,6 +19,8 @@ class ShoeListViewModel() : ViewModel() {
 
     private fun loadShoeList() {
 
+        _shoeList.value = ArrayList()
+
         val shoe1 = Shoe("shoe1", 50.0, "nike", "shoe1")
         val shoe2 = Shoe("shoe2", 45.0, "adidas", "shoe2")
         val shoe3 = Shoe("shoe3", 85.0, "puma", "shoe3")

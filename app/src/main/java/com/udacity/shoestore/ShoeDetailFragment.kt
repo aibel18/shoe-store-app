@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
 
 class ShoeDetailFragment : Fragment() {
@@ -27,7 +28,11 @@ class ShoeDetailFragment : Fragment() {
         )
         viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
 
+
+
         binding.saveButton.setOnClickListener {
+            val action = ShoeDetailFragmentDirections.actionShoeDetailToShoeList()
+            findNavController().navigate(action)
         }
 
         binding.cancelButton.setOnClickListener{
