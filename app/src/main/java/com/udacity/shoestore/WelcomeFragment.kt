@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.udacity.shoestore.databinding.WelcomeFragmentBinding
+import com.udacity.shoestore.viewmodel.AccountViewModel
 
 class WelcomeFragment : Fragment() {
 
     private lateinit var binding: WelcomeFragmentBinding
-    private lateinit var viewModel: AccountViewModel
+    private val viewModel: AccountViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +27,6 @@ class WelcomeFragment : Fragment() {
             container,
             false
         )
-        val welcomeFragmentArgs by navArgs<WelcomeFragmentArgs>()
-
-        val viewModelFactory = AccountViewModelFactory(welcomeFragmentArgs.userName, welcomeFragmentArgs.password)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(AccountViewModel::class.java)
 
         binding.accountViewModel = viewModel
 

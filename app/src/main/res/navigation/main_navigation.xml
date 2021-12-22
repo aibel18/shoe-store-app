@@ -19,12 +19,6 @@
         android:name="com.udacity.shoestore.WelcomeFragment"
         android:label="Welcome"
         tools:layout="@layout/welcome_fragment">
-        <argument
-            android:name="user_name"
-            app:argType="string" />
-        <argument
-            android:name="password"
-            app:argType="string" />
         <action
             android:id="@+id/action_welcome_to_instruction"
             app:destination="@id/instruction_fragment" />
@@ -53,7 +47,7 @@
         android:label="Shoe Detail"
         tools:layout="@layout/shoe_detail_fragment">
         <action
-            android:id="@+id/action_shoe_detail_fragment_to_shoe_list_fragment"
+            android:id="@+id/action_shoe_detail_to_shoe_list"
             app:destination="@id/shoe_list_fragment" />
     </fragment>
 </navigation>

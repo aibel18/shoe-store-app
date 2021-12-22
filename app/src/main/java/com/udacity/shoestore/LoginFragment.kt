@@ -1,6 +1,5 @@
 package com.udacity.shoestore
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.LoginFragmentBinding
+import com.udacity.shoestore.viewmodel.AccountViewModel
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: LoginFragmentBinding
-    private lateinit var viewModel: AccountViewModel
+    private val viewModel: AccountViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +28,6 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-        viewModel = ViewModelProvider(this).get(AccountViewModel::class.java)
 
         binding.loginButton.setOnClickListener {
             val username = binding.userNameEdit.text.toString()
@@ -37,20 +37,22 @@ class LoginFragment : Fragment() {
         }
 
         binding.loginAccountButton.setOnClickListener{
-            toWelcome(viewModel.username.value.toString(), viewModel.password.value.toString())
+            val username = viewModel.username.value?.toString()
+            val password = viewModel.password.value?.toString()
+
+            toWelcome(username, password)
         }
 
         return binding.root
     }
 
-    private fun toWelcome(username: String, password: String) {
-        if(username.isNotEmpty() && password.isNotEmpty()) {
-            viewModel.login(username, password)
-            val action = LoginFragmentDirections.actionLoginToWelcome(username, password)
-            findNavController().navigate(action)
-        }
-        else{
+    private fun toWelcome(username: String?, password: String?) {
+        if(username.isNullOrEmpty() || password.isNullOrEmpty()) {
             Toast.makeText(this.activity, "username or password is invalid", Toast.LENGTH_SHORT).show()
+            return
         }
+        viewModel.setAccount(username, password)
+        val action = LoginFragmentDirections.actionLoginToWelcome()
+        findNavController().navigate(action)
     }
 }

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="accountViewModel"
-            type="com.udacity.shoestore.AccountViewModel" />
+            type="com.udacity.shoestore.viewmodel.AccountViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
