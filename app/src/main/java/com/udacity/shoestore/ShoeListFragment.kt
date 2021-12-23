@@ -36,14 +36,16 @@ class ShoeListFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        createShoeViews()
+        viewModel.shoeList.observe(viewLifecycleOwner, { shoes ->
+            createShoeViews(shoes)
+        })
 
         return binding.root
     }
 
-    private fun createShoeViews() {
+    private fun createShoeViews(shoes: List<Shoe>) {
 
-        viewModel.shoeList.value?.forEach {shoe: Shoe ->
+        shoes.forEach {shoe: Shoe ->
 
             val shoeItem = View.inflate(context, R.layout.shoe_item, null)
 

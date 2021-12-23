@@ -17,6 +17,7 @@ class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: ShoeDetailFragmentBinding
     private val viewModel: ShoeListViewModel by activityViewModels()
+    private var myShoe : Shoe = Shoe("", 0.0, "", "")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +31,12 @@ class ShoeDetailFragment : Fragment() {
             false
         )
 
+        binding.shoe = myShoe
+
         binding.saveButton.setOnClickListener {
 
             binding.apply {
-                addShoe(nameEdit.text?.toString(),  sizeEdit.text?.toString(), companyEdit.text?.toString(), descriptionEdit.text?.toString())
+                addShoe()
             }
         }
 
@@ -44,27 +47,24 @@ class ShoeDetailFragment : Fragment() {
         return binding.root
     }
 
-    private fun addShoe(name: String?, size: String?, company: String?, description: String?) {
-        if(name.isNullOrEmpty()) {
+    private fun addShoe() {
+        if(myShoe.name.isEmpty()) {
             Toast.makeText(this.activity, "the shoe name is empty", Toast.LENGTH_SHORT).show()
             return
         }
-        if(size.isNullOrEmpty()) {
-            Toast.makeText(this.activity, "the shoe size is empty", Toast.LENGTH_SHORT).show()
+        if(myShoe.size == 0.0) {
+            Toast.makeText(this.activity, "the shoe size is 0.0", Toast.LENGTH_SHORT).show()
             return
         }
-        if(company.isNullOrEmpty()) {
+        if(myShoe.company.isEmpty()) {
             Toast.makeText(this.activity, "the shoe company is empty", Toast.LENGTH_SHORT).show()
             return
         }
-        if(description.isNullOrEmpty()) {
-            Toast.makeText(this.activity, "the shoe name is empty", Toast.LENGTH_SHORT).show()
+        if(myShoe.description.isEmpty()) {
+            Toast.makeText(this.activity, "the shoe description is empty", Toast.LENGTH_SHORT).show()
             return
         }
-
-        val shoe = Shoe(name,  size.toDouble(), company, description)
-
-        viewModel.addShoe(shoe)
+        viewModel.addShoe(myShoe)
 
         backShoeList()
     }
