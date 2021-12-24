@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
@@ -47,13 +48,11 @@ class ShoeListFragment : Fragment() {
 
         shoes.forEach {shoe: Shoe ->
 
-            val shoeItem = View.inflate(context, R.layout.shoe_item, null)
+            val shoeItemBinding : ShoeItemBinding = DataBindingUtil.inflate(layoutInflater, R.layout.shoe_item, null, false)
 
-            shoeItem.name_label.text = shoe.name
-            shoeItem.company_label.text = shoe.company
-            shoeItem.size_label.text = shoe.size.toString()
+            shoeItemBinding.shoe = shoe
 
-            binding.shoeListLayout.addView(shoeItem)
+            binding.shoeListLayout.addView(shoeItemBinding.root)
         }
     }
 }
